@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills &amp; policy monitor — GOV.UK content tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="kicker">Horizons</p>
+    <h1>Skills &amp; policy monitor</h1>
+    <p class="lede">Pulls the day's GOV.UK content across skills, education, work, and government topics, in one place, filterable, exportable.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="run-panel" aria-label="Run controls">
+    <div class="run-panel-row">
+      <button id="run-button" class="btn-primary">Run the sweep</button>
+      <div id="run-status" class="run-status" aria-live="polite">Not yet run this session.</div>
+    </div>
+    <p class="run-note">Runs one call against the GOV.UK Search API directly from your browser, covering all 27 watched taxon branches, unrestricted by format. Filter by format, department, or topic below once it's loaded.</p>
+  </section>
+
+  <section class="filter-panel" aria-label="Filters" hidden id="filter-panel">
+    <div class="filter-row">
+      <label class="filter-field">
+        <span>Search title &amp; description</span>
+        <input type="text" id="filter-text" placeholder="e.g. apprenticeship">
+      </label>
+      <label class="filter-field">
+        <span>Department</span>
+        <input type="text" id="filter-org" placeholder="e.g. DWP">
+      </label>
+      <label class="filter-field">
+        <span>Topic</span>
+        <input type="text" id="filter-topic" placeholder="e.g. Working, jobs and pensions">
+      </label>
+      <label class="filter-field">
+        <span>Format</span>
+        <select id="filter-format">
+          <option value="">All formats</option>
+        </select>
+      </label>
+    </div>
+    <div class="filter-row filter-meta">
+      <span id="result-count"></span>
+      <div class="export-buttons">
+        <button class="btn-secondary" id="export-csv">Export CSV</button>
+        <button class="btn-secondary" id="export-json">Export JSON</button>
+        <button class="btn-secondary" id="export-xlsx">Export Excel</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Results">
+    <div class="table-wrap">
+      <table id="results-table">
+        <thead>
+          <tr>
+            <th data-key="publishedDisplay">Published</th>
+            <th data-key="format">Format</th>
+            <th data-key="title">Title</th>
+            <th data-key="organisations">Department(s)</th>
+            <th data-key="topics">Topic(s)</th>
+          </tr>
+        </thead>
+        <tbody id="results-body">
+          <tr class="empty-row"><td colspan="5">Nothing pulled yet. Press "Run the sweep" to fetch today's content.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built for BPP Horizons. Data from the <a href="https://docs.publishing.service.gov.uk/repos/search-api/using-the-search-api.html" target="_blank" rel="noopener">GOV.UK Search API</a>. No data is stored server-side, everything above happens in this browser tab.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="taxonomy-loader.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

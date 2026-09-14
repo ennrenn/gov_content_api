@@ -1,0 +1,244 @@
+:root {
+  --ink: #1C2530;
+  --ink-soft: #4A5560;
+  --paper: #F2F4F3;
+  --paper-raised: #FFFFFF;
+  --line: #D7DBD8;
+  --teal: #2F5D62;
+  --teal-dark: #1E4247;
+  --amber: #A6631B;
+  --amber-bg: #FBF1E4;
+  --row-stripe: #EAEDEB;
+  --font-display: "Source Serif 4", Georgia, serif;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.masthead {
+  background: var(--teal-dark);
+  color: #EDF2F1;
+  padding: 2.75rem 1.5rem 2.25rem;
+}
+
+.masthead-inner {
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  color: #A9C4C2;
+  font-weight: 500;
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.1rem;
+  margin: 0 0 0.6rem;
+  max-width: 30ch;
+}
+
+.lede {
+  margin: 0;
+  max-width: 52ch;
+  color: #CFE0DE;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 3rem;
+}
+
+.run-panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.run-panel-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.run-note {
+  margin: 0.75rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  max-width: 68ch;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 5px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-primary:hover { background: var(--teal-dark); }
+.btn-primary:disabled { background: #9AAEAC; cursor: wait; }
+
+.btn-secondary {
+  background: var(--paper-raised);
+  color: var(--teal-dark);
+  border: 1px solid var(--teal);
+  padding: 0.45rem 0.9rem;
+  border-radius: 5px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover { background: #E6EEED; }
+.btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.run-status {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.filter-panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-row {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.filter-field input[type="text"],
+.filter-field select {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  min-width: 11rem;
+  color: var(--ink);
+}
+
+.filter-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-meta {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  justify-content: space-between;
+  align-items: center;
+}
+
+#result-count {
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.table-wrap {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+}
+
+thead th {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid var(--teal);
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--teal-dark);
+}
+
+tbody td {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) { background: var(--row-stripe); }
+
+tbody td a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.empty-row td {
+  color: var(--ink-soft);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.title-cell { max-width: 28rem; }
+.title-cell .desc {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+}
+
+footer {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+footer a { color: var(--teal-dark); }
+
+@media (max-width: 40rem) {
+  .masthead h1 { font-size: 1.6rem; }
+  .filter-row { flex-direction: column; align-items: stretch; }
+  .filter-field input, .filter-field select { min-width: 0; width: 100%; }
+}
